@@ -14,7 +14,7 @@ const removeQuestion = [
 ];
 
 const main = () => {
-  console.log(chalk.blue(figlet.textSync("Notes App")));
+  console.log(chalk.blue(figlet.textSync("Notes App", { font: "smkeyboard" })));
   app();
 };
 
