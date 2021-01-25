@@ -1,6 +1,7 @@
 const figlet = require("figlet");
 const inquirer = require("inquirer");
-const { addNote } = require("../utils/notes.js");
+const chalk = require("chalk");
+const { addNote, listNotes, removeNote } = require("../utils/notes.js");
 
 const topLevelQuestion = [
   { type: "list", name: "options", message: "What would you like to do?", choices: ["add", "list", "remove", "exit"] },
@@ -8,8 +9,12 @@ const topLevelQuestion = [
 
 const addQuestion = [{ type: "input", name: "add", message: "What would you like to add?" }];
 
+const removeQuestion = [
+  { type: "input", name: "remove", message: "What would you like to remove? Please type a number" },
+];
+
 const main = () => {
-  console.log(figlet.textSync("Notes App"));
+  console.log(chalk.blue(figlet.textSync("Notes App")));
   app();
 };
 
@@ -21,10 +26,12 @@ const app = async () => {
 
     app();
   } else if (answers.options == "list") {
-    console.log("listing notes...");
+    listNotes();
     app();
   } else if (answers.options == "remove") {
-    console.log("removing a note");
+    listNotes();
+    const answer = await inquirer.prompt(removeQuestion);
+    removeNote(answer.remove);
     app();
   } else if (answers.options == "exit") {
     console.log("Ok, bye for now");

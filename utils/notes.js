@@ -1,8 +1,14 @@
 const fs = require("fs");
+const chalk = require("chalk");
 
 const addNote = (myNote) => {
   const allNotes = loadNotes();
   allNotes.push({ reminder: myNote });
+  console.log(
+    chalk.green(`
+  Added new note: ${myNote}
+  `)
+  );
   saveNotes(allNotes);
 };
 
@@ -30,10 +36,17 @@ const listNotes = () => {
 
 const removeNote = (noteToDelete) => {
   const allNotes = loadNotes();
-  const notesToKeep = allNotes.filter((note) => {
-    return note.reminder != noteToDelete;
-  });
-  saveNotes(notesToKeep);
+
+  try {
+    const removedItem = allNotes.splice(noteToDelete - 1, 1);
+    console.log(`
+    Successfully removed ${removedItem[0].reminder}
+    `);
+  } catch (error) {
+    console.log("Number out of range");
+  }
+
+  saveNotes(allNotes);
 };
 
 module.exports = {
