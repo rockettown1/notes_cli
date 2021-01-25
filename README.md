@@ -2,4 +2,4 @@
 
 Command line application demo in Node.js for Code Nation students
 
-![Image of CLI]('./NotesAppCL.png')
+![Image of CLI](/NotesAppCL.png)
