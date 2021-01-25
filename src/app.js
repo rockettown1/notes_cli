@@ -1,6 +1,7 @@
 const figlet = require("figlet");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
+
 const { addNote, listNotes, removeNote } = require("../utils/notes.js");
 
 const topLevelQuestion = [
@@ -14,7 +15,7 @@ const removeQuestion = [
 ];
 
 const main = () => {
-  console.log(chalk.blue(figlet.textSync("Notes App", { font: "smkeyboard" })));
+  console.log(chalk.blue(figlet.textSync("Notes App", { font: "isometric3" })));
   app();
 };
 
