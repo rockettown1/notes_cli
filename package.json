@@ -1,0 +1,24 @@
+{
+  "name": "reminder_app_v2",
+  "version": "1.0.0",
+  "description": "A cooler version of the command line reminder app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockettown1/reminder_app_v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rockettown1/reminder_app_v2/issues"
+  },
+  "homepage": "https://github.com/rockettown1/reminder_app_v2#readme",
+  "dependencies": {
+    "figlet": "^1.5.0",
+    "inquirer": "^7.3.3"
+  }
+}
