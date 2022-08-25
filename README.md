@@ -12,7 +12,7 @@
 
 ## Take some time to understand how this app is working
 
-This app uses the Inquirer npm package. You should take a bit of time reading and trying to understand the code that is already there so you can start to add your own features. You should also check out the Inquirer documentation found here: [Inquirer Docs](https://github.com/SBoudrias/Inquirer.js#readme).
+This app uses the Inquirer npm package. You should take a bit of time reading and trying to understand the code that is already there so you can start to add your own features. Code comprehension (reading code you didn't write yourself) is EXTREMELY important as an engineer, and you should practice it at every opportunity. You should also check out the Inquirer documentation found here: [Inquirer Docs](https://github.com/SBoudrias/Inquirer.js#readme).
 
 # Tasks
 
