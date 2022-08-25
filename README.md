@@ -5,7 +5,7 @@
 - Fork the repository to your own account
 - Clone the code to your own machine
 - run ```npm i``` to get the dependencies
-- create an ```.env``` file, add an environment variable called MONGO_URI and store a connection string to a MongoDB database (this is exactly the same as the other apps you've done this week) Remember to add/change the name of your database in the connection string.
+- create an ```.env``` file, add an environment variable called MONGO_URI and store a connection string to a MongoDB database (this is exactly the same as the other apps you've done already) Remember to add/change the name of your database in the connection string.
 - run the app using the command ```npm run app```
 
 **If you have any problems getting the app running initially please reach out to Dan.**
