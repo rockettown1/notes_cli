@@ -19,7 +19,7 @@ This app uses the Inquirer npm package. You should take a bit of time reading an
 ## Add more options
 This app currently has two options, "add" and "exit". Please implement new functionality to:
 
-### List all the notes currently in the database
+### 1. List all the notes currently in the database
 Add a "list" option, which when selected will retrieve all the notes in your database and list them in the following way:
 
 ```
@@ -30,20 +30,24 @@ Add a "list" option, which when selected will retrieve all the notes in your dat
 
 Think about how you will pull out just the note (not all the other stuff stored in the MongoDB collection). And also think how you could use the array indicies to number them.
 
-### Delete a note by it's number
+### 2. Delete a note by it's number
 Add a "delete" option which requires you to type a number, and will then remove that note from the database.
 
 
-## Change the font used by Figlet.
+## 3. Change the font used by Figlet.
 The notes on Figlet can be found here: [Figlet](https://www.npmjs.com/package/figlet).
 And here's a link to ASCII fonts: [ASCII fonts](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20).
 
 
-## Add some colour!!
+## 4. Add some colour!!
 This app already uses the Chalk npm package. Play around with it to add some colour. Here's some documentation: [Chalk](https://www.npmjs.com/package/chalk)
 
-## Can you think of any more features to add?
+## 5. Can you think of any more features to add?
 How about storing more information? An expiry date? Or how about changing the Mongoose model so it has a "done" boolean? How would you implement that feature into the application?
 
 
-If you've done all this send Dan your repo so he can marvel at your greatness.
+Bonus: Can you answer this question...
+
+Why can you run this app by typing ```npm run app``` rather than typing ```node src/app.js``` like you have before?
+
+If you've done all this, send Dan your repo so he can marvel at your greatness.
