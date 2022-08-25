@@ -1,42 +1,46 @@
 const figlet = require("figlet");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
+const mongoose = require("mongoose");
 
-const { addNote, listNotes, removeNote } = require("../utils/notes.js");
+const connection = require("./db/connection");
+const { addNote } = require("./utils/notes.js");
 
+//Initial Options
 const topLevelQuestion = [
-  { type: "list", name: "options", message: "What would you like to do?", choices: ["add", "list", "remove", "exit"] },
+  { type: "list", name: "options", message: "What would you like to do?", choices: ["add", "exit"] },
 ];
 
-const addQuestion = [{ type: "input", name: "add", message: "What would you like to add?" }];
-
-const removeQuestion = [
-  { type: "input", name: "remove", message: "What would you like to remove? Please type a number" },
+//Question for adding a note
+const addQuestion = [
+  { type: "input", name: "add", message: "What would you like to add? (type your note and hit enter):" },
 ];
 
-const main = () => {
+//main function which runs the app
+const main = async () => {
   console.log(chalk.blue(figlet.textSync("Notes App", { font: "isometric3" })));
+  console.log("Starting App...");
+  await connection();
+  console.log(" ");
   app();
 };
 
+//application logic
 const app = async () => {
-  const answers = await inquirer.prompt(topLevelQuestion);
-  if (answers.options == "add") {
-    const answer = await inquirer.prompt(addQuestion);
-    addNote(answer.add);
+  const topLevelAnswer = await inquirer.prompt(topLevelQuestion);
 
+  if (topLevelAnswer.options == "add") {
+    const answer = await inquirer.prompt(addQuestion);
+    await addNote(answer.add);
+    /*
+    note  the recursion here. Once we have carried out a task, we call app again to go back to the start
+    */
     app();
-  } else if (answers.options == "list") {
-    listNotes();
-    app();
-  } else if (answers.options == "remove") {
-    listNotes();
-    const answer = await inquirer.prompt(removeQuestion);
-    removeNote(answer.remove);
-    app();
-  } else if (answers.options == "exit") {
+  } else if (topLevelAnswer.options == "exit") {
     console.log("Ok, bye for now");
+    mongoose.disconnect();
   }
 };
 
+//this starts the whole app
 main();
