@@ -13,3 +13,15 @@ exports.addNote = async (myNote) => {
     console.log(error);
   }
 };
+
+exports.listNotes = async () => {
+  try {
+    const list = await Note.find({});
+
+    for (let i = 0; i < list.length; i++) {
+      console.log(`${chalk.green(i + 1)}: ${list[i].note}`);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

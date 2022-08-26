@@ -4,11 +4,11 @@ const chalk = require("chalk");
 const mongoose = require("mongoose");
 
 const connection = require("./db/connection");
-const { addNote } = require("./utils/notes.js");
+const { addNote, listNotes } = require("./utils/notes.js");
 
 //Initial Options
 const topLevelQuestion = [
-  { type: "list", name: "options", message: "What would you like to do?", choices: ["add", "exit"] },
+  { type: "list", name: "options", message: "What would you like to do?", choices: ["add", "list", "exit"] },
 ];
 
 //Question for adding a note
@@ -35,6 +35,9 @@ const app = async () => {
     /*
     note  the recursion here. Once we have carried out a task, we call app again to go back to the start
     */
+    app();
+  } else if (topLevelAnswer.options === "list") {
+    await listNotes();
     app();
   } else if (topLevelAnswer.options == "exit") {
     console.log("Ok, bye for now");
